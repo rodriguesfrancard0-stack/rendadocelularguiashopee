@@ -19,6 +19,8 @@
   --dark4:#222;
   --glass:rgba(255,255,255,0.04);
   --glass2:rgba(255,255,255,0.08);
+  --mint:#3AF2B2;
+  --blue:#40A9FF;
   --text:#f0f0f0;
   --muted:#888;
   --border:rgba(255,255,255,0.07);
@@ -32,35 +34,59 @@ a{text-decoration:none;color:inherit}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
  
 /* ── HEADER ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(8,8,8,0.85);border-bottom:1px solid var(--border)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(8,8,8,0.86);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;letter-spacing:-0.5px}
 .nav-logo span{color:var(--fire)}
 .nav-cta{background:var(--fire);color:#fff;padding:11px 26px;border-radius:100px;font-size:14px;font-weight:600;transition:all .2s;white-space:nowrap}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,69,0,0.4)}
+.nav-proof{display:flex;align-items:center;gap:8px;color:#aaa;font-size:12px}
+.nav-proof i{color:var(--mint)}
  
 /* ── HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,69,0,0.18) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(255,182,39,0.08) 0%,transparent 60%);pointer-events:none}
-.hero-orb{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(255,69,0,0.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-60%);animation:pulse 4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.6;transform:translate(-50%,-60%) scale(1)}50%{opacity:1;transform:translate(-50%,-60%) scale(1.1)}}
-.hero-inner{position:relative;z-index:1;max-width:780px}
+.hero{min-height:100vh;display:flex;align-items:center;padding:116px 20px 70px;position:relative;overflow:hidden;background:linear-gradient(180deg,#0b0b0b 0%,#080808 100%)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 58% at 20% 4%,rgba(255,69,0,0.18) 0%,transparent 62%),radial-gradient(ellipse 60% 46% at 90% 82%,rgba(58,242,178,0.08) 0%,transparent 58%),linear-gradient(135deg,rgba(255,255,255,0.03),transparent 35%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1160px;width:100%;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(320px,.76fr);gap:60px;align-items:center}
+.hero-copy{text-align:left}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,69,0,0.12);border:1px solid rgba(255,69,0,0.3);color:var(--fire2);padding:8px 18px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px}
 .hero-badge-dot{width:6px;height:6px;background:var(--fire);border-radius:50%;animation:blink 1.5s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,7vw,80px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,7vw,78px);font-weight:800;line-height:1.03;letter-spacing:-2px;margin-bottom:24px;max-width:760px}
 .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--fire),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(16px,2vw,20px);color:var(--muted);line-height:1.75;max-width:580px;margin:0 auto 48px;font-weight:300}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:#b7b7b7;line-height:1.72;max-width:650px;margin:0 0 34px;font-weight:300}
 .hero-sub strong{color:var(--text);font-weight:500}
-.hero-actions{display:flex;flex-direction:column;align-items:center;gap:14px}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--fire),var(--fire2));color:#fff;padding:20px 48px;border-radius:100px;font-size:17px;font-weight:600;transition:all .3s;box-shadow:0 0 0 0 rgba(255,69,0,0.4)}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(255,69,0,0.4)}
 .btn-primary i{font-size:18px}
 .hero-trust{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}
-.hero-trust i{color:#2ecc71;font-size:12px}
+.hero-trust i{color:var(--mint);font-size:12px}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:60px}
 .stat{background:var(--dark2);padding:24px 16px;text-align:center}
 .stat-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--fire),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:.5px}
+.hero-visual{position:relative;min-height:570px;display:flex;align-items:center;justify-content:center}
+.phone-mock{width:min(360px,86vw);background:#101010;border:1px solid rgba(255,255,255,.13);border-radius:34px;padding:14px;box-shadow:0 34px 90px rgba(0,0,0,.55),0 0 80px rgba(255,69,0,.13);transform:rotate(2deg)}
+.phone-screen{background:linear-gradient(180deg,#f8f4ef 0%,#fff 100%);color:#161616;border-radius:24px;overflow:hidden;min-height:520px;position:relative}
+.phone-top{height:48px;background:#ff5b17;display:flex;align-items:center;justify-content:space-between;color:#fff;padding:0 18px;font-size:12px;font-weight:700}
+.phone-card{padding:26px 24px}
+.cover-kicker{display:inline-flex;color:#ff5b17;background:#fff0e8;border:1px solid #ffd8c8;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:18px}
+.cover-title{font-family:'Syne',sans-serif;font-size:38px;line-height:.96;font-weight:800;letter-spacing:-1.6px;color:#111;margin-bottom:14px}
+.cover-title span{color:#ff5b17}
+.cover-copy{color:#5d5d5d;font-size:13px;line-height:1.65;margin-bottom:24px}
+.app-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.app-chip{background:#111;color:#fff;border-radius:14px;padding:14px 8px;text-align:center;font-size:11px;font-weight:700}
+.app-chip i{display:block;color:#ff6b00;font-size:18px;margin-bottom:7px}
+.check-list{display:flex;flex-direction:column;gap:10px}
+.check-list div{display:flex;align-items:center;gap:8px;color:#333;font-size:12px;font-weight:600}
+.check-list i{color:#13b981}
+.floating-note{position:absolute;background:rgba(24,24,24,.9);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px);border-radius:16px;padding:14px 16px;box-shadow:0 18px 42px rgba(0,0,0,.3)}
+.floating-note strong{display:block;font-family:'Syne',sans-serif;font-size:22px;color:var(--mint);line-height:1}
+.floating-note span{color:#bfbfbf;font-size:12px}
+.note-a{left:0;top:84px}
+.note-b{right:0;bottom:102px}
+.proof-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;max-width:660px}
+.proof-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.045);border:1px solid var(--border);border-radius:14px;padding:13px 14px;color:#cfcfcf;font-size:13px}
+.proof-item i{color:var(--mint)}
  
 /* ── SECTION BASE ── */
 .section{padding:100px 20px}
@@ -68,6 +94,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--fire);margin-bottom:16px}
 .section-title{font-family:'Syne',sans-serif;font-size:clamp(32px,4.5vw,52px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px}
 .section-sub{color:var(--muted);font-size:17px;line-height:1.7;max-width:560px;font-weight:300}
+.section-head-center{text-align:center;margin-bottom:56px}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
  
 /* ── PAIN ── */
 .pain{background:var(--dark2)}
@@ -97,6 +125,25 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .mod-num{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:var(--fire);background:rgba(255,69,0,0.1);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;letter-spacing:1px}
 .mod-card h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
 .mod-card p{color:var(--muted);font-size:13px;line-height:1.65;font-weight:300}
+
+/* ── INSIDE ── */
+.inside{background:#0b0b0b}
+.inside-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center;margin-top:56px}
+.preview-stack{position:relative;min-height:390px}
+.preview-page{position:absolute;background:#f7f2eb;color:#151515;border-radius:18px;padding:28px;border:1px solid rgba(0,0,0,.08);box-shadow:0 26px 70px rgba(0,0,0,.38);width:300px;min-height:360px}
+.preview-page h3{font-family:'Syne',sans-serif;font-size:25px;line-height:1.05;letter-spacing:-.8px;margin-bottom:16px}
+.preview-page p{font-size:12px;line-height:1.6;color:#555;margin-bottom:16px}
+.preview-page:nth-child(1){left:0;top:16px;transform:rotate(-5deg);z-index:1}
+.preview-page:nth-child(2){left:118px;top:0;transform:rotate(4deg);background:#fff;z-index:2}
+.preview-page:nth-child(3){left:230px;top:36px;transform:rotate(9deg);background:#141414;color:#fff;z-index:3}
+.preview-page:nth-child(3) p{color:#bbb}
+.mini-line{height:9px;border-radius:99px;background:#ded7cf;margin:10px 0}
+.preview-page:nth-child(3) .mini-line{background:#2a2a2a}
+.inside-list{display:grid;gap:14px}
+.inside-item{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--dark3);border:1px solid var(--border);border-radius:18px;padding:20px}
+.inside-icon{width:44px;height:44px;border-radius:14px;background:rgba(255,69,0,.12);display:flex;align-items:center;justify-content:center;color:var(--fire)}
+.inside-item h4{font-family:'Syne',sans-serif;font-size:17px;margin-bottom:7px}
+.inside-item p{color:var(--muted);font-size:14px;line-height:1.65}
  
 /* ── TESTIMONIALS ── */
 .testimonials{background:var(--dark2)}
@@ -185,12 +232,38 @@ footer a{color:#555}
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   .nav{padding:16px 20px}
+  .nav-proof{display:none}
+  .nav-logo{font-size:16px}
+  .nav-cta{padding:10px 16px;font-size:12px}
+  .hero{padding-top:104px;text-align:left}
+  .hero-inner{grid-template-columns:1fr;gap:30px}
+  .hero-visual{min-height:auto;order:-1;padding-top:14px}
+  .phone-mock{width:min(310px,88vw);transform:none}
+  .phone-screen{min-height:455px}
+  .cover-title{font-size:32px}
+  .floating-note{display:none}
+  .hero-actions{align-items:stretch}
+  .hero-actions .btn-primary{justify-content:center;width:100%;padding:18px 24px;text-align:center}
+  .proof-strip{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .split-grid{grid-template-columns:1fr;gap:32px}
   .forwhom-grid{grid-template-columns:1fr}
   .offer-card{padding:32px 24px}
   .price-main{font-size:56px}
   .float{bottom:16px;right:16px;padding:12px 20px;font-size:13px}
   .modules-grid{grid-template-columns:1fr}
+  .inside-grid{grid-template-columns:1fr}
+  .preview-stack{min-height:350px;transform:scale(.86);transform-origin:left top}
+  .section{padding:78px 20px}
+}
+
+@media(max-width:520px){
+  .hero h1{letter-spacing:-1.2px}
+  .btn-primary{font-size:15px}
+  .preview-stack{display:none}
+  .float{left:16px;justify-content:center}
+  .offer-item{align-items:flex-start}
+  .offer-item-val{display:none}
 }
  
 /* ── HOTMART OVERRIDE ── */
@@ -203,26 +276,58 @@ footer a{color:#555}
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-logo">📱 Renda no <span>Celular</span></div>
+  <div class="nav-proof"><i class="fas fa-circle-check"></i>Guia digital + bônus inclusos</div>
   <a onclick="return false;" href="https://pay.hotmart.com/T105439903G" class="hotmart-fb hotmart__button-checkout nav-cta">Comprar R$ 19,90</a>
 </nav>
  
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-orb"></div>
   <div class="hero-inner fade-up">
-    <div class="hero-badge"><span class="hero-badge-dot"></span>Lançamento 2025 — Vagas Abertas</div>
-    <h1>Seu Celular Pode<br>Gerar <em>Comissões</em><br>Todo Dia na Shopee</h1>
-    <p class="hero-sub">O guia mais direto do Brasil para ganhar dinheiro como afiliado Shopee — sem aparecer na câmera, <strong>sem anúncios pagos</strong> e sem experiência prévia.</p>
-    <div class="hero-actions">
-      <a onclick="return false;" href="https://pay.hotmart.com/T105439903G" class="hotmart-fb hotmart__button-checkout btn-primary"><i class="fas fa-bolt"></i>Quero Começar por R$ 19,90</a>
-      <div class="hero-trust"><i class="fas fa-shield-halved"></i>Garantia de 7 dias — risco zero</div>
+    <div class="hero-copy">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Guia prático para iniciantes</div>
+      <h1>Aprenda a vender como afiliado Shopee usando só o <em>celular</em></h1>
+      <p class="hero-sub">Um plano simples para escolher produtos, criar links, divulgar no orgânico e publicar vídeos curtos que geram cliques — sem aparecer na câmera, <strong>sem anúncios pagos</strong> e sem experiência prévia.</p>
+      <div class="hero-actions">
+        <a onclick="return false;" href="https://pay.hotmart.com/T105439903G" class="hotmart-fb hotmart__button-checkout btn-primary"><i class="fas fa-bolt"></i>Começar agora por R$ 19,90</a>
+        <div class="hero-trust"><i class="fas fa-shield-halved"></i>Garantia de 7 dias</div>
+      </div>
+      <div class="proof-strip">
+        <div class="proof-item"><i class="fas fa-mobile-screen"></i>Aplicável pelo celular</div>
+        <div class="proof-item"><i class="fas fa-video"></i>Roteiros para Shopee Vídeo</div>
+        <div class="proof-item"><i class="fas fa-lock"></i>Checkout seguro Hotmart</div>
+      </div>
+      <div class="hero-stats fade-up">
+        <div class="stat"><div class="stat-val">10</div><div class="stat-lbl">Capítulos práticos</div></div>
+        <div class="stat"><div class="stat-val">2</div><div class="stat-lbl">Bônus inclusos</div></div>
+        <div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Pelo celular</div></div>
+        <div class="stat"><div class="stat-val">R$0</div><div class="stat-lbl">Em anúncios</div></div>
+      </div>
     </div>
-    <div class="hero-stats fade-up">
-      <div class="stat"><div class="stat-val">10+</div><div class="stat-lbl">Capítulos</div></div>
-      <div class="stat"><div class="stat-val">30d</div><div class="stat-lbl">Para resultados</div></div>
-      <div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Pelo celular</div></div>
-      <div class="stat"><div class="stat-val">R$0</div><div class="stat-lbl">Em anúncios</div></div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="floating-note note-a"><strong>10</strong><span>capítulos diretos</span></div>
+      <div class="phone-mock">
+        <div class="phone-screen">
+          <div class="phone-top"><span>Renda no Celular</span><i class="fas fa-signal"></i></div>
+          <div class="phone-card">
+            <div class="cover-kicker">Guia Shopee 2025</div>
+            <div class="cover-title">Afiliado <span>Shopee</span> do Zero</div>
+            <p class="cover-copy">Passo a passo para montar sua estrutura, escolher ofertas e divulgar todos os dias com conteúdo simples.</p>
+            <div class="app-row">
+              <div class="app-chip"><i class="fas fa-link"></i>Links</div>
+              <div class="app-chip"><i class="fas fa-clapperboard"></i>Vídeos</div>
+              <div class="app-chip"><i class="fas fa-chart-line"></i>Escala</div>
+            </div>
+            <div class="check-list">
+              <div><i class="fas fa-check-circle"></i>Cadastro e aprovação</div>
+              <div><i class="fas fa-check-circle"></i>Produtos campeões</div>
+              <div><i class="fas fa-check-circle"></i>Divulgação orgânica</div>
+              <div><i class="fas fa-check-circle"></i>Ferramentas gratuitas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="floating-note note-b"><strong>R$ 19,90</strong><span>acesso imediato</span></div>
     </div>
   </div>
 </section>
@@ -260,7 +365,7 @@ footer a{color:#555}
 <!-- PARA QUEM -->
 <section class="section forwhom">
   <div class="section-inner">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start" class="fade-up">
+    <div class="split-grid fade-up">
       <div>
         <span class="eyebrow">Para quem é</span>
         <h2 class="section-title">Este guia foi feito para você</h2>
@@ -281,7 +386,7 @@ footer a{color:#555}
 <!-- MÓDULOS -->
 <section class="section modules">
   <div class="section-inner">
-    <div class="fade-up" style="text-align:center;margin-bottom:56px">
+    <div class="fade-up section-head-center">
       <span class="eyebrow">Conteúdo completo</span>
       <h2 class="section-title">10 capítulos práticos<br>do zero ao faturamento</h2>
     </div>
@@ -299,11 +404,52 @@ footer a{color:#555}
     </div>
   </div>
 </section>
+
+<!-- PREVIA -->
+<section class="section inside">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="eyebrow">Por dentro do guia</span>
+      <h2 class="section-title">Um material direto,<br>visual e aplicável</h2>
+      <p class="section-sub">Nada de teoria solta. A ideia é abrir, seguir a ordem e executar pequenas ações todos os dias pelo celular.</p>
+    </div>
+    <div class="inside-grid fade-up">
+      <div class="preview-stack" aria-hidden="true">
+        <div class="preview-page">
+          <h3>Checklist de cadastro</h3>
+          <p>O que preencher, como organizar o perfil e quais erros evitar antes de enviar sua solicitação.</p>
+          <div class="mini-line" style="width:82%"></div>
+          <div class="mini-line" style="width:66%"></div>
+          <div class="mini-line" style="width:74%"></div>
+        </div>
+        <div class="preview-page">
+          <h3>Produtos que vendem</h3>
+          <p>Critérios simples para filtrar ofertas com boa procura, preço competitivo e chance maior de conversão.</p>
+          <div class="mini-line" style="width:88%"></div>
+          <div class="mini-line" style="width:58%"></div>
+          <div class="mini-line" style="width:78%"></div>
+        </div>
+        <div class="preview-page">
+          <h3>Roteiro de vídeo</h3>
+          <p>Estrutura curta para mostrar benefício, prova visual, chamada para ação e link de afiliado.</p>
+          <div class="mini-line" style="width:74%"></div>
+          <div class="mini-line" style="width:92%"></div>
+          <div class="mini-line" style="width:63%"></div>
+        </div>
+      </div>
+      <div class="inside-list">
+        <div class="inside-item"><div class="inside-icon"><i class="fas fa-route"></i></div><div><h4>Plano de execução</h4><p>Você sabe o que fazer primeiro, o que repetir todo dia e quais métricas observar.</p></div></div>
+        <div class="inside-item"><div class="inside-icon"><i class="fas fa-copy"></i></div><div><h4>Copies e roteiros prontos</h4><p>Modelos para adaptar rápido em WhatsApp, Instagram, TikTok, Pinterest e Shopee Vídeo.</p></div></div>
+        <div class="inside-item"><div class="inside-icon"><i class="fas fa-screwdriver-wrench"></i></div><div><h4>Ferramentas gratuitas</h4><p>Apps de design, edição e IA para produzir conteúdo mesmo começando sem estrutura.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
  
 <!-- DEPOIMENTOS -->
 <section class="section testimonials">
   <div class="section-inner">
-    <div class="fade-up" style="text-align:center;margin-bottom:56px">
+    <div class="fade-up section-head-center">
       <span class="eyebrow">Resultados reais</span>
       <h2 class="section-title">O que nossos leitores<br>estão dizendo</h2>
     </div>
